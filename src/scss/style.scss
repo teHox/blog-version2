@@ -635,6 +635,7 @@ html[data-theme="dark"] {
 // Create-post
 
 .create-post{
+	flex-wrap: wrap;
 	max-width: 865px;
 	width: 100%;
 	display: flex;

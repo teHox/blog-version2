@@ -3,7 +3,8 @@ import {
 	fetchBaseQuery,
 } from "@reduxjs/toolkit/query/react";
 
-const API_URL = "http://localhost:4200";
+// const API_URL = "http://localhost:4200";
+const API_URL = "https://blog-json-server-two.vercel.app";
 
 export const api = createApi({
 	reducerPath: "api",

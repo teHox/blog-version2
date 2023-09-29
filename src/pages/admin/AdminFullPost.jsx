@@ -4,6 +4,8 @@ import { adminInfo } from "./adminInfo";
 import { useState } from "react";
 import CreatePostTags from "../../components/createPostTags/CreatePostTags";
 import { useUpdatePostMutation } from "../../store/api/api";
+import Highcharts from 'highcharts';
+import HighchartsReact from "highcharts-react-official";
 
 const AdminFullPost = ({ id, data }) => {
   const [postInfo, setPostInfo] = useState(data);
@@ -19,11 +21,63 @@ const AdminFullPost = ({ id, data }) => {
     }
   }
 
-  console.log(data);
+  const options = {
+    chart: {
+      type: 'bar',
+      backgroundColor: "#2d2b2b",
+      plotBackgroundColor: '#4f4b4b',
+      plotBorderWidth: 1,
+      style: {
+        fontSize: "18px",
+      }
+    },
+    title: {
+      text: 'Post Info',
+      style: {
+        color: "#fff"
+      }
+    },
+    xAxis: {
+      categories: ['Views', 'Likes', 'Comments', 'Tags'],
+      labels:{
+        style: {
+          color: "#fff"
+        }
+      }
+    },
+    yAxis: {
+      title: {
+        text: 'Quantity of Views, Likes, etc.',
+        style: {
+          color: "#fff"
+        }
+      },
+      labels:{
+        style: {
+          color: "#fff"
+        }
+      }
+    },
+    series: [{
+      name: postInfo.title,
+      data: [postInfo.views, postInfo.likes, postInfo.comments.length, postInfo.tags.length]
+    }],
+    legend:{
+      itemStyle:{
+        color: "#fff",
+        fill: "#fff",
+      },
+      itemHoverStyle: {
+        color: "#808080",
+        fill: "#808080",
+      }
+    }
+  }
 
   return (
     <div className="container">
       <div className="create-post">
+        <HighchartsReact highcharts={Highcharts} options={options}/>
         <form className="create-post__wrapper">
           <div className="create-post__user">{postInfo.name}</div>
           <div className="create-post__date">{postInfo.date}</div>
