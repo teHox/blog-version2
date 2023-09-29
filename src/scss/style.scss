@@ -60,6 +60,22 @@ html[data-theme="dark"] {
 	background-position-y: center;
 }
 
+.create-post__highcharts{
+	width: 100%;
+}
+
+.highcharts-background{
+	fill: var(--color-opacity);
+}
+
+.highcharts-plot-background{
+	fill: var(--color-admin-opacity);
+}
+
+.highcharts-point{
+	fill: var(--color-font);
+}
+
 // Sidebar
 
 .sidebar {
@@ -641,6 +657,7 @@ html[data-theme="dark"] {
 	display: flex;
 	justify-content: space-between;
 	align-items: baseline;
+	gap: 20px;
 	&__wrapper{
 		max-width: 530px;
 		width: 100%;

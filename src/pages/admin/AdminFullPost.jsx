@@ -77,7 +77,9 @@ const AdminFullPost = ({ id, data }) => {
   return (
     <div className="container">
       <div className="create-post">
-        <HighchartsReact highcharts={Highcharts} options={options}/>
+        <div className="create-post__highcharts">
+          <HighchartsReact  highcharts={Highcharts} options={options}/>
+        </div>
         <form className="create-post__wrapper">
           <div className="create-post__user">{postInfo.name}</div>
           <div className="create-post__date">{postInfo.date}</div>
