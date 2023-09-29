@@ -4,7 +4,7 @@ import {
 } from "@reduxjs/toolkit/query/react";
 
 // const API_URL = "http://localhost:4200";
-const API_URL = "https://blog-json-server-two.vercel.app";
+const API_URL = "https://blog-data-8a1u.onrender.com";
 
 export const api = createApi({
 	reducerPath: "api",
@@ -51,7 +51,7 @@ export const api = createApi({
 		}),
 		deletePost: builder.mutation({
 			query: (id) => ({
-				url: `posts/${id}`,
+				url: `/posts/${id}`,
 				method: "DELETE",
 			}),
 			invalidatesTags: ({ id }) => [
